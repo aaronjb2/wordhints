@@ -1,0 +1,16 @@
+.space{
+    width:100%;
+    height:40px;
+}
+
+.whole{
+    height:100vh;
+    width:100vw;
+    background-color:orange;
+}
+
+.menu{
+    width:100%;
+    height:100%;
+    background-color:purple;
+}

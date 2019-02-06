@@ -1,0 +1,1 @@
+delete from wordhints_history where room = $1;

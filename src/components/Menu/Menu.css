@@ -1,0 +1,19 @@
+.menu{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    height:100%;
+    width:100%;
+}
+
+.option-carrier{
+    height:200px;
+    width:200px;
+    position:relative;
+    bottom:50px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: space-between;
+}

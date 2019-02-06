@@ -71,6 +71,26 @@ module.exports = {
         c = c.sort((a,b)=>a.index-b.index);
         res.status(200).send({board:c,turn:goesFirst===1?"Blue HintGiver":"Red HintGiver",history:[],gameDone:false});
     },
+    async joinSession(req,res,next){
+        let db = req.app.get('db');
+        let {room} = req.body;
+        req.session.sessionRoom = room;
+        req.session.sessionUse = "None Selected";
+        res.status(200).send({status:"In A Room",sessionRoom:req.session.sessionRoom,sessionUse:req.session.sessionUse});
+    },
+    async destroySession(req,res,next){
+        req.session.destroy();
+        res.status(200).send({status:'Not In A Room',sessionRoom:'',sessionUse:''});
+    },
+    async selectUse(req,res,next){
+        let db = req.app.get('db');
+        let {use} = req.body;
+        req.session.sessionUse = use;
+        res.status(200).send({status:"In A Room",sessionRoom:req.session.sessionRoom,sessionUse:req.session.sessionUse});
+    },
+    async getSession(req,res,next){
+        res.status(200).send({sessionRoom:req.session?req.session.sessionRoom:'',sessionUse:req.session?req.session.sessionUse:''});
+    },
     async getHistory(req,res,next){
         let db = req.app.get('db');
         let {room} = req.params;
@@ -111,5 +131,12 @@ module.exports = {
         color === 'blue' && hintgiver === false && endofturn?"Red HintGiver":
         "Blue HintGiver";
         res.status(200).send({board,history,gameDone:blueRemaining===-1 || redRemaining===-1 || color==='black'?true:false,turn})
+    },
+    async deleteGame(req,res,next){
+        let db = req.app.get('db');
+        let {room} = req.params;
+        await db.delete_history([room]);
+        await db.delete_board_words([room]);
+        res.status(200).send({board:[],history:[]});
     }
 }

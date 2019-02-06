@@ -1,0 +1,1 @@
+delete from wordhints_board_words where room = $1;
