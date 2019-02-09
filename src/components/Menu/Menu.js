@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {setValues} from '../../dux/reducer.js';
+import {changeRoom,changeUse,changeTurn,changeCurrentElement,changeBoard,changeHistory} from '../../dux/reducer.js';
 import './Menu.css';
 import axios from 'axios';
 
@@ -24,8 +24,8 @@ async componentDidMount(){
         return (
             <div className = 'menu'>
                 <div className='option-carrier'>
-                    <button>Create Game</button>
-                    <button>Join Game</button>
+                    <button onClick={()=>this.props.changeCurrentElement('create')}>Create Game</button>
+                    <button onClick={()=>this.props.changeCurrentElement('join')}>Join Game</button>
                 </div>
             </div>
         )
@@ -34,4 +34,4 @@ async componentDidMount(){
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps,{setValues})(Menu);
+export default connect(mapStateToProps,{changeRoom,changeUse,changeTurn,changeCurrentElement,changeBoard,changeHistory})(Menu);

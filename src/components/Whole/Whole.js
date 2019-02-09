@@ -4,7 +4,7 @@ import Footer from '../Footer/Footer.js';
 import Header from '../Header/Header.js';
 import Menu from '../Menu/Menu.js';
 import {connect} from 'react-redux';
-import {setValues} from '../../dux/reducer.js';
+import {changeRoom,changeUse,changeTurn,changeCurrentElement,changeBoard,changeHistory} from '../../dux/reducer.js';
 import axios from 'axios';
 
 class Whole extends Component{
@@ -12,9 +12,7 @@ constructor(props){
     super(props);
 
     this.state = {
-        currentElement:'menu'
     }
-    this.setCurrentElement=this.setCurrentElement.bind(this);
 }
 
 async componentDidMount(){
@@ -24,19 +22,14 @@ async componentDidMount(){
     }
 }
 
-setCurrentElement(element){
-    this.setState({currentElement:element})
-}
-
-
 
     render(){
         return (
             <div className='whole'>
                 <Header></Header>
                 <div className='space'></div>
-                    {this.state.currentElement==='menu'?
-                    <Menu className='menu'/>
+                    {this.props.currentElement==='menu'?
+                    <Menu/>
                     :
                     null}
                 <Footer></Footer>
@@ -47,4 +40,4 @@ setCurrentElement(element){
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps,{setValues})(Whole);
+export default connect(mapStateToProps,{changeRoom,changeUse,changeTurn,changeCurrentElement,changeBoard,changeHistory})(Whole);
