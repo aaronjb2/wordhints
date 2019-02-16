@@ -14,7 +14,6 @@ import {changeRoom,changeUse,changeTurn,changeCurrentElement,changeBoard,changeH
 import axios from 'axios';
 import io from 'socket.io-client';
 
-//const socket = io.connect('http://localhost:3890');
 const socket = io.connect();
 
 class Whole extends Component{
