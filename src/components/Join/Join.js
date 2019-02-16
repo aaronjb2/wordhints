@@ -40,7 +40,7 @@ async joinGame(){
 }
 
 displaySquare(){
-    if (this.state.displaySquare){
+    if (this.state.showSquare){
         return (
             <div className='square'>
 
