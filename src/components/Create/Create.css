@@ -1,0 +1,41 @@
+.create{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    height:100%;
+    width:100%;
+    background-color:rgb(150,150,150);
+}
+
+.option-carrier{
+    height:110px;
+    width:200px;
+    position:relative;
+    bottom:50px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: flex-start;
+}
+
+.room-finder{
+    width:200px;
+    height:40px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.room{
+    width:60px;
+    height:30px;
+    position:relative;
+    top:1px;
+    font-size:16px;
+}
+
+.room-button{
+    width:120px;
+    height:40px;
+}

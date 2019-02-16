@@ -3,11 +3,18 @@ require('dotenv').config();
 const massive = require('massive');
 const socket = require('socket.io');
 const controller = require('./controller.js');
+const session = require('express-session');
 
 const app = express();
 
 app.use(express.json());
-const {SERVER_PORT, MASSIVE_CONNECTION} = process.env;
+const {SERVER_PORT, MASSIVE_CONNECTION, SESSION_SECRET} = process.env;
+
+app.use(session({
+    secret: SESSION_SECRET,
+    resave:false,
+    saveUninitialized:false
+}))
 
 app.use( express.static( `${__dirname}/../build` ) );
 
@@ -36,10 +43,12 @@ massive(MASSIVE_CONNECTION).then(db=> {
 io.on("connection", socket => {
 
     socket.on("join-room",data=>{
+        console.log('inside join-room with room:',data.room)
         socket.join(data.room);
     })
 
     socket.on("update",data=>{
+        console.log('inside update with room:',data.room);
         io.to(data.room).emit("update");
     })
 

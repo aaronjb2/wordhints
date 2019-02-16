@@ -9,15 +9,11 @@ constructor(props){
     super(props);
 
     this.state = {
-        currentElement:'menu'
     }
 }
 
 async componentDidMount(){
-    let a = await axios.get('/room/getsession');
-    if (a.data.room !== ''){
-        
-    }
+
 }
 
     render(){

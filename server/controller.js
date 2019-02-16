@@ -89,7 +89,7 @@ module.exports = {
         res.status(200).send({status:"In A Room",sessionRoom:req.session.sessionRoom,sessionUse:req.session.sessionUse});
     },
     async getSession(req,res,next){
-        res.status(200).send({sessionRoom:req.session?req.session.sessionRoom:'',sessionUse:req.session?req.session.sessionUse:''});
+        res.status(200).send({sessionRoom:req.session.sessionRoom,sessionUse:req.session.sessionUse});
     },
     async getHistory(req,res,next){
         let db = req.app.get('db');

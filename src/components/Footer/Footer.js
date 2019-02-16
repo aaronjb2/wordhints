@@ -23,8 +23,8 @@ class Footer extends Component{
         return (
             <div className='footer'>
                 <div className='container-of-session-details'>
-                    <h3 className='room'>Room: {this.state.sessionRoom===''?'None Selected':this.state.sessionRoom}</h3>
-                    <h3 className='use'>Device Use: {this.state.sessionRoom===''?'None Yet':this.state.sessionUse}</h3>
+                    <h3 className='room'>Room: {this.props.sessionRoom===''?'Select':this.props.sessionRoom}</h3>
+                    <h3 className='use'>Device Use: {this.props.sessionRoom===''?'None Yet':this.props.sessionUse}</h3>
                 </div>
             </div>
         )
