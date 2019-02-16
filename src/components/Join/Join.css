@@ -39,3 +39,9 @@
     width:120px;
     height:40px;
 }
+
+.square{
+    height:300px;
+    width:300px;
+    background-color:black;
+}
