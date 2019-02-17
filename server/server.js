@@ -24,6 +24,9 @@ const io = socket(
     })
 )
 
+app.get('/test/word',(req,res,next)=>{
+    res.status(200).send({word:"taco"});
+})
 app.get('/board/checkforboard/:room',controller.checkForBoard);
 app.get('/room/getsession',controller.getSession);
 app.post('/board/generateboard',controller.generateBoard);
