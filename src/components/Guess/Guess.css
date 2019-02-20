@@ -1,0 +1,36 @@
+
+.guess{
+    height:200%;
+    width:100%;
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+}
+
+.words-shown-option-buttons{
+    height:70px;
+    width:200px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.word-container{
+    height:35px;
+    width:200px;
+    border:2px solid black;
+}
+
+.word-container h6{
+    position:relative;
+    top:-42px;
+}
+
+.space{
+    width:2px;
+    height:60px;
+}
+
+#chosen{
+    background-color:green;
+}
